@@ -1,0 +1,105 @@
+.glow-button {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 18px rgba(117, 255, 102, 0.4);
+}
+
+.ultra-bold {
+  font-weight: 900;
+}
+
+.role-container {
+  border-radius: 20px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.role-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.role-container:hover .role-content {
+  transform: translateY(-60px);
+}
+
+.role-title {
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.plus-icon-wrapper {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.plus-icon {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-container:hover .plus-icon-wrapper {
+  opacity: 0;
+}
+
+.role-description {
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.role-container:hover .role-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.role-description p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.apply-button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.apply-button:hover {
+  background: white;
+  color: #032a46;
+}

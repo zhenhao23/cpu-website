@@ -1,4 +1,4 @@
-/* Add this CSS to your stylesheet */
+/* Add these styles to your NavBar.css file */
 .nav-container {
   position: relative;
   border-radius: 50px;
@@ -41,4 +41,21 @@
 
 .hover-underline:hover::after {
   width: 100%;
+}
+
+/* Add this new style for active links */
+.active-link::after {
+  width: 100% !important;
+}
+
+/* Remove focus outline from nav links */
+.nav-link:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus outline from navbar-toggler */
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }

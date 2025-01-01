@@ -1,10 +1,25 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import CPULogo from "../assets/CPU logo.svg";
 import "./NavBar.css";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about-us", label: "About Us" },
+    { path: "/events", label: "Events" },
+    { path: "/social", label: "Social" },
+    { path: "/membership", label: "Membership" },
+    { path: "/recruitment", label: "Recruitment" },
+  ];
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav
+      className="navbar navbar-expand-lg shadow"
+      style={{ backgroundColor: "black" }}
+    >
       <div className="container">
         <div className="d-flex align-items-center">
           <img
@@ -36,36 +51,18 @@ const Navbar = () => {
         >
           <div className="nav-container px-4 py-2">
             <ul className="navbar-nav gap-4">
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  Home
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  About Us
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  Events
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  Social
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  Membership
-                </button>
-              </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link text-white position-relative hover-underline">
-                  Recruitment
-                </button>
-              </li>
+              {navLinks.map((link) => (
+                <li className="nav-item" key={link.path}>
+                  <Link
+                    to={link.path}
+                    className={`nav-link btn btn-link text-white position-relative hover-underline ${
+                      location.pathname === link.path ? "active-link" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
