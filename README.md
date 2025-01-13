@@ -9,7 +9,7 @@
 2. **Navigate to the project folder:**
 
    ```
-   cd HomeSync
+   cd cpu-website
    ```
 
 3. **Install all dependencies:**
