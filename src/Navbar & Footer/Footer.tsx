@@ -40,7 +40,7 @@ const Footer = () => {
     {
       img: gmail,
       alt: "Gmail",
-      href: "https://www.linkedin.com/company/hwumcpu" /* TODO */,
+      href: "mailTo:hwumcpu@gmail.com",
     },
   ];
 
