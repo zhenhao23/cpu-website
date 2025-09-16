@@ -21,7 +21,6 @@ export async function loadModel(loader: GLTFLoader, path: string, scene: THREE.S
         onLoad(model, scene);
         return model;
     } catch (err) {
-        throw err;
         onErr(path, err);
         return null;
     }

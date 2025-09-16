@@ -1,7 +1,17 @@
 body {
+    margin: 0;
     width: 100%;
     box-sizing: border-box;   
-    overflow: scroll; 
+    overflow: scroll;
+}
+
+#canvas-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#canvas-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 #canvas-overlay {
