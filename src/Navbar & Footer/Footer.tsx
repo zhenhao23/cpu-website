@@ -1,11 +1,49 @@
-import React from "react";
 import CPULogo from "../assets/CPU logo.svg";
 import linkedin from "../assets/Footer social icons/linkedin.svg";
 import instagram from "../assets/Footer social icons/instagram.svg";
 import facebook from "../assets/Footer social icons/facebook.svg";
 import gmail from "../assets/Footer social icons/gmail.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const navLinks = [
+    [
+      { path: "/", label: "Home" },
+      { path: "/about-us", label: "About Us" },
+    ],
+    [
+      { path: "/events", label: "Events" },
+      { path: "/social", label: "Social" },
+    ],
+    [
+      { path: "/membership", label: "Membership" },
+      { path: "/recruitment", label: "Recruitment" },
+    ],
+  ];
+
+  const socialLinks = [
+    {
+      img: linkedin,
+      alt: "LinkedIn",
+      href: "https://www.linkedin.com/company/hwumcpu",
+    },
+    {
+      img: instagram,
+      alt: "Instagram",
+      href: "https://www.instagram.com/cpuhwum/",
+    },
+    {
+      img: facebook,
+      alt: "Facebook",
+      href: "https://www.facebook.com/hwumCPU",
+    },
+    {
+      img: gmail,
+      alt: "Gmail",
+      href: "https://www.linkedin.com/company/hwumcpu" /* TODO */,
+    },
+  ];
+
   return (
     <footer
       className="text-white py-4 mt-auto"
@@ -34,90 +72,41 @@ const Footer = () => {
           {/* Navigation Links Section */}
           <div className="col-md-4 mb-4 mb-md-0">
             <div className="row text-center">
-              <div className="col-4">
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  About Us
-                </a>
-              </div>
-              <div className="col-4">
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  Events
-                </a>
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  Social
-                </a>
-              </div>
-              <div className="col-4">
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  Recruitment
-                </a>
-                <a
-                  href="#"
-                  className="text-white text-decoration-none mb-2 d-block"
-                >
-                  Membership
-                </a>
-              </div>
+              {navLinks.map((links) => {
+                return (
+                  <div className="col-4">
+                    {links.map((link) => {
+                      return (
+                        <Link
+                          to={link.path}
+                          className="text-white text-decoration-none mb-2 d-block"
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Social Icons Section */}
           <div className="col-md-4">
             <div className="d-flex justify-content-center gap-4">
-              <a href="#" className="social-icon-link">
-                <img
-                  src={linkedin}
-                  alt="LinkedIn"
-                  className="rounded-circle"
-                  width="40"
-                  height="40"
-                />
-              </a>
-              <a href="#" className="social-icon-link">
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  className="rounded-circle"
-                  width="40"
-                  height="40"
-                />
-              </a>
-              <a href="#" className="social-icon-link">
-                <img
-                  src={facebook}
-                  alt="Facebook"
-                  className="rounded-circle"
-                  width="40"
-                  height="40"
-                />
-              </a>
-              <a href="#" className="social-icon-link">
-                <img
-                  src={gmail}
-                  alt="Gmail"
-                  className="rounded-circle"
-                  width="40"
-                  height="40"
-                />
-              </a>
+              {socialLinks.map((link) => {
+                return (
+                  <a href={link.href} className="social-icon-link">
+                    <img
+                      src={link.img}
+                      alt={link.alt}
+                      className="rounded-circle"
+                      width="40"
+                      height="40"
+                    />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
