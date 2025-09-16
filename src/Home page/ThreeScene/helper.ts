@@ -56,6 +56,30 @@ export function createPathFromPoints(points: THREE.Vector3[], color: number): TH
     return pathObject;
 }
 
+export function getRandomStarSpread(numStars: number): THREE.Object3D[] {
+    var stars: THREE.Object3D[] = [];
+    for (var i = 0; i < numStars; i++) {
+        var star = new THREE.Mesh(
+            new THREE.CircleGeometry(0.1),
+            new THREE.MeshBasicMaterial(
+                { color: "#ffffff" }
+            )
+        );
+
+        star.position.copy(
+            new THREE.Vector3(
+                Math.random() * 400 - 200,
+                Math.random() * 400 - 200,
+                -5
+            )
+        );
+
+        stars.push(star);
+    }
+
+    return stars;
+}
+
 // Function to calculate it based on scroll position
 export function getScrollT(): number {
     // current vertical scroll position in pixels from the top of the page

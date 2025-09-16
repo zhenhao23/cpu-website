@@ -6,6 +6,7 @@ import {
   getModelDimensions,
   loadModel,
   genRocketPathPoints,
+  getRandomStarSpread,
   createPathFromPoints,
   getScrollT,
   customScrollLogic,
@@ -18,6 +19,7 @@ function ThreeScene() {
     /** Globals **/
     const radius: number = 30; // Define the radius of the circular path
     const numPoints: number = 100; // Number of points for the path
+    const numStars: number = 1000; // Number of stars in the background
     var points: THREE.Vector3[] = [];
 
     // Ensure canvas readjusts to window size
@@ -122,6 +124,12 @@ function ThreeScene() {
     // Move glowMesh to be behind Earth, then add to scene
     glowMesh.position.copy(earth.position).setZ(-30);
     scene.add(glowMesh);
+
+    // Add stars to the scene
+    getRandomStarSpread(numStars).forEach((star) => {
+      console.log("Adding star");
+      scene.add(star);
+    });
 
     // Animation loop
     let frameID: number;
