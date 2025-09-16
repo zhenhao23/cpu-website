@@ -72,13 +72,14 @@ const Footer = () => {
           {/* Navigation Links Section */}
           <div className="col-md-4 mb-4 mb-md-0">
             <div className="row text-center">
-              {navLinks.map((links) => {
+              {navLinks.map((links, i) => {
                 return (
-                  <div className="col-4">
+                  <div key={i} className="col-4">
                     {links.map((link) => {
                       return (
                         <Link
                           to={link.path}
+                          key={link.path}
                           className="text-white text-decoration-none mb-2 d-block"
                         >
                           {link.label}
@@ -96,7 +97,11 @@ const Footer = () => {
             <div className="d-flex justify-content-center gap-4">
               {socialLinks.map((link) => {
                 return (
-                  <a href={link.href} className="social-icon-link">
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="social-icon-link"
+                  >
                     <img
                       src={link.img}
                       alt={link.alt}
